@@ -6,8 +6,11 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.github.dockerjava.api.DockerClient;
+import com.github.dockerjava.api.command.InspectContainerCmd;
+import com.github.dockerjava.api.command.InspectContainerResponse;
 import com.github.dockerjava.api.command.ListContainersCmd;
 import com.github.dockerjava.api.model.Container;
+import com.mmontaldo.caffainer.dto.ContainerInfoDto;
 import com.mmontaldo.caffainer.service.ContainerService;
 
 import lombok.AllArgsConstructor;
@@ -25,5 +28,16 @@ public class ContainerServiceImpl implements ContainerService {
         return containers.stream()
                 .map(container -> container.getId().substring(0, 12) + " - " + String.join(", ", container.getNames()))
                 .collect(Collectors.toList());
+    }
+
+    public ContainerInfoDto inspectContainer(String containerId) {
+        InspectContainerCmd inspectContainerCmd = dockerClient.inspectContainerCmd(containerId);
+        InspectContainerResponse info = inspectContainerCmd.exec();
+        ContainerInfoDto dto = new ContainerInfoDto();
+        dto.setId(containerId);
+        dto.setName(info.getName());
+        dto.setImage(info.getImageId());
+        dto.setState(info.getState().getStatus());
+        return dto;
     }
 }

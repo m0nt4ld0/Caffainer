@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.mmontaldo.caffainer.dto.ContainerInfoDto;
 import com.mmontaldo.caffainer.service.impl.ContainerServiceImpl;
 
 import lombok.AllArgsConstructor;
@@ -17,9 +17,9 @@ import lombok.AllArgsConstructor;
 public class ContainerController {
     private final ContainerServiceImpl containerServiceImpl;
 
-    @GetMapping("/list")
+    @GetMapping("/ok")
     public String getList() {
-        return "Hola Mundo";
+        return "ok";
     }
 
     @GetMapping("/listRunningContainers")
@@ -27,14 +27,8 @@ public class ContainerController {
         return containerServiceImpl.getRunningContainers();
     }
 
-    @GetMapping("/{id}/inspect")
-    public String getDetails(@PathVariable Integer id) {
-        return "Hola Mundo";
+    @GetMapping("/{containerId}/inspect")
+    public ContainerInfoDto getDetails(@PathVariable String containerId) {
+        return containerServiceImpl.inspectContainer(containerId);
     }
-    
-    @GetMapping("/{id}/status")
-    public String getStatus(@PathVariable Integer id) {
-        return "Hola Mundo";
-    }
-    
 }

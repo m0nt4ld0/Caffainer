@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/process")
 public class ProcessController {
-
+    //ToDo
     @GetMapping("/list")
     public String getList() {
         return "Hola Mundo";
     }
-
+    //ToDo
     @GetMapping("/{id}/info")
     public String getDetails(@PathVariable Integer id) {
         return "Hola Mundo";
     }
-
+    //ToDo
     @GetMapping("/{id}/status")
     public String getStatus(@PathVariable Integer id) {
         return "Hola Mundo";

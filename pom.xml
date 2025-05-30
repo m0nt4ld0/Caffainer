@@ -76,6 +76,14 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- Model mapper -->
+    <dependency>
+      <groupId>org.modelmapper</groupId>
+      <artifactId>modelmapper</artifactId>
+      <version>3.2.0</version>
+  </dependency>
+
+
     <!-- Jakarta WS RS API -->
     <dependency>
       <groupId>javax.ws.rs</groupId>

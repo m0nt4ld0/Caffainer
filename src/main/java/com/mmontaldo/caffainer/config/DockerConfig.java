@@ -1,4 +1,4 @@
-package com.mmontaldo.caffainer.bean;
+package com.mmontaldo.caffainer.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

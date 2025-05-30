@@ -3,6 +3,7 @@ package com.mmontaldo.caffainer.service.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.github.dockerjava.api.DockerClient;
@@ -20,6 +21,7 @@ import lombok.AllArgsConstructor;
 public class ContainerServiceImpl implements ContainerService {
     
     private final DockerClient dockerClient;
+    private final ModelMapper modelMapper;
 
     public List<String> getRunningContainers() {
         ListContainersCmd listContainersCmd = dockerClient.listContainersCmd().withShowAll(true);
@@ -32,12 +34,6 @@ public class ContainerServiceImpl implements ContainerService {
 
     public ContainerInfoDto inspectContainer(String containerId) {
         InspectContainerCmd inspectContainerCmd = dockerClient.inspectContainerCmd(containerId);
-        InspectContainerResponse info = inspectContainerCmd.exec();
-        ContainerInfoDto dto = new ContainerInfoDto();
-        dto.setId(containerId);
-        dto.setName(info.getName());
-        dto.setImage(info.getImageId());
-        dto.setState(info.getState().getStatus());
-        return dto;
+        return modelMapper.map(inspectContainerCmd.exec(),ContainerInfoDto.class);
     }
 }

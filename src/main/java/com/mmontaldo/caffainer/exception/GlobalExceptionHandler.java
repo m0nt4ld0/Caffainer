@@ -24,13 +24,14 @@ public class GlobalExceptionHandler {
         logger.error("Docker connection error: {} - Host: {} - Operation: {}", 
                     ex.getMessage(), ex.getDockerHost(), ex.getOperation(), ex);
         
-        ErrorResponseDto errorResponse = new ErrorResponseDto();
-        errorResponse.setMessage("No se pudo conectar con el servicio Docker");
-        errorResponse.setError("Docker Connection Error");
-        errorResponse.setStatus(HttpStatus.SERVICE_UNAVAILABLE.value());
-        errorResponse.setPath(request.getDescription(false).replace("uri=", ""));
-        errorResponse.setDockerHost(ex.getDockerHost());
-        errorResponse.setOperation(ex.getOperation());
+        ErrorResponseDto errorResponse = new ErrorResponseDto(
+            "No se pudo conectar con el servicio Docker",
+            "Docker Connection Error",
+            HttpStatus.SERVICE_UNAVAILABLE.value(),
+            request.getDescription(false).replace("uri=", ""),
+            ex.getDockerHost(),
+            ex.getOperation()
+        );
         
         return new ResponseEntity<>(errorResponse, HttpStatus.SERVICE_UNAVAILABLE);
     }
@@ -41,11 +42,14 @@ public class GlobalExceptionHandler {
         
         logger.error("HTTP connection error: {}", ex.getMessage(), ex);
         
-        ErrorResponseDto errorResponse = new ErrorResponseDto();
-        errorResponse.setMessage("Error de conexión con el host Docker");
-        errorResponse.setError("HTTP Connection Error");
-        errorResponse.setStatus(HttpStatus.SERVICE_UNAVAILABLE.value());
-        errorResponse.setPath(request.getDescription(false).replace("uri=", ""));
+        ErrorResponseDto errorResponse = new ErrorResponseDto(
+            "Error de conexión con el host Docker",
+            "HTTP Connection Error",
+            HttpStatus.SERVICE_UNAVAILABLE.value(),
+            request.getDescription(false).replace("uri=", ""),
+            null,
+            null
+        );
         
         return new ResponseEntity<>(errorResponse, HttpStatus.SERVICE_UNAVAILABLE);
     }
@@ -61,11 +65,14 @@ public class GlobalExceptionHandler {
             return handleHttpHostConnectException((HttpHostConnectException) ex.getCause(), request);
         }
         
-        ErrorResponseDto errorResponse = new ErrorResponseDto();
-        errorResponse.setMessage("Error interno del servidor");
-        errorResponse.setError("Internal Server Error");
-        errorResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-        errorResponse.setPath(request.getDescription(false).replace("uri=", ""));
+        ErrorResponseDto errorResponse = new ErrorResponseDto(
+            "Error interno del servidor",
+            "Internal Server Error",
+            HttpStatus.INTERNAL_SERVER_ERROR.value(),
+            request.getDescription(false).replace("uri=", ""),
+            null,
+            null
+        );
         
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -76,11 +83,14 @@ public class GlobalExceptionHandler {
         
         logger.error("Unexpected error: {}", ex.getMessage(), ex);
         
-        ErrorResponseDto errorResponse = new ErrorResponseDto();
-        errorResponse.setMessage("Ha ocurrido un error inesperado");
-        errorResponse.setError("Unexpected Error");
-        errorResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-        errorResponse.setPath(request.getDescription(false).replace("uri=", ""));
+        ErrorResponseDto errorResponse = new ErrorResponseDto(
+            "Ha ocurrido un error inesperado",
+            "Unexpected Error",
+            HttpStatus.INTERNAL_SERVER_ERROR.value(),
+            request.getDescription(false).replace("uri=", ""),
+            null,
+            null
+        );
         
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }

@@ -68,6 +68,54 @@
       <scope>test</scope>
     </dependency>
 
+    <!-- Inicio-->
+    <!-- Spring Boot Web -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- Spring Security -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+
+    <!-- Jakarta Persistance -->
+    <dependency>
+        <groupId>jakarta.persistence</groupId>
+        <artifactId>jakarta.persistence-api</artifactId>
+        <version>3.1.0</version>
+    </dependency>
+
+    <!-- Spring Data JPA -->
+    <dependency>
+        <groupId>jakarta.persistence</groupId>
+        <artifactId>jakarta.persistence-api</artifactId>
+        <version>3.1.0</version>
+    </dependency>
+
+    <!-- JWT -->
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-api</artifactId>
+      <version>0.11.5</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-impl</artifactId>
+      <version>0.11.5</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-jackson</artifactId>
+      <version>0.11.5</version>
+      <scope>runtime</scope>
+    </dependency>
+
     <!-- Lombok -->
     <dependency>
       <groupId>org.projectlombok</groupId>
@@ -76,13 +124,12 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Model mapper -->
+      <!-- Model mapper -->
     <dependency>
-      <groupId>org.modelmapper</groupId>
-      <artifactId>modelmapper</artifactId>
-      <version>3.2.0</version>
-  </dependency>
-
+        <groupId>org.modelmapper</groupId>
+        <artifactId>modelmapper</artifactId>
+        <version>3.2.0</version>
+    </dependency>
 
     <!-- Jakarta WS RS API -->
     <dependency>

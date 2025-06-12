@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.command.InspectContainerCmd;
-import com.github.dockerjava.api.command.InspectContainerResponse;
 import com.github.dockerjava.api.command.ListContainersCmd;
 import com.github.dockerjava.api.model.Container;
 import com.mmontaldo.caffainer.dto.ContainerInfoDto;

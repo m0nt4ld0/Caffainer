@@ -1,4 +1,4 @@
-package com.mmontaldo.caffainer.service.impl;
+package com.mmontaldo.caffainer.service.docker.impl;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,7 +11,7 @@ import com.github.dockerjava.api.command.InspectContainerCmd;
 import com.github.dockerjava.api.command.ListContainersCmd;
 import com.github.dockerjava.api.model.Container;
 import com.mmontaldo.caffainer.dto.ContainerInfoDto;
-import com.mmontaldo.caffainer.service.ContainerService;
+import com.mmontaldo.caffainer.service.docker.ContainerService;
 
 import lombok.AllArgsConstructor;
 

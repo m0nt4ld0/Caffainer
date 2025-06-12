@@ -1,4 +1,4 @@
-package com.mmontaldo.caffainer.service;
+package com.mmontaldo.caffainer.service.docker;
 
 import java.util.List;
 

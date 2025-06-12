@@ -1,4 +1,4 @@
-package com.mmontaldo.caffainer.service.impl;
+package com.mmontaldo.caffainer.service.docker.impl;
 
 import org.springframework.stereotype.Service;
 

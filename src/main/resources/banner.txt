@@ -1,0 +1,10 @@
+ ▗▄▄▖ ▗▄▖ ▗▄▄▄▖▗▄▄▄▖ ▗▄▖ ▗▄▄▄▖▗▖  ▗▖▗▄▄▄▖▗▄▄▖ 
+▐▌   ▐▌ ▐▌▐▌   ▐▌   ▐▌ ▐▌  █  ▐▛▚▖▐▌▐▌   ▐▌ ▐▌
+▐▌   ▐▛▀▜▌▐▛▀▀▘▐▛▀▀▘▐▛▀▜▌  █  ▐▌ ▝▜▌▐▛▀▀▘▐▛▀▚▖
+▝▚▄▄▖▐▌ ▐▌▐▌   ▐▌   ▐▌ ▐▌▗▄█▄▖▐▌  ▐▌▐▙▄▄▖▐▌ ▐▌
+                                              
+        C O N T A I N E R   M O N I T O R     
+                                              
+          ☕ Powered by Java 21 & Docker          
+          Developed by: Mariela Montaldo      
+               github.com/m0nt4ld0            

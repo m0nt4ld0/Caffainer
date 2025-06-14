@@ -1,11 +1,13 @@
-package com.mmontaldo.caffainer.dto;
+package com.mmontaldo.caffainer.dto.docker;
 
 import java.util.List;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class ContainerInfoDto {

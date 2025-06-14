@@ -1,4 +1,4 @@
-package com.mmontaldo.caffainer.controller;
+package com.mmontaldo.caffainer.controller.users;
 
 import java.util.List;
 
@@ -33,7 +33,6 @@ public class UserController {
 
         return ResponseEntity.ok(userService.getUserByUsername(usernameFromToken));
     }
-
 
     @GetMapping("/all")
     public List<UserDto> getAllUsers() {

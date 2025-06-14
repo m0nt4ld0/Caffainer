@@ -23,7 +23,7 @@ public class ContainerServiceImpl implements ContainerService {
     private final ModelMapper modelMapper;
 
     public List<String> getRunningContainers() {
-        ListContainersCmd listContainersCmd = dockerClient.listContainersCmd().withShowAll(true);
+        ListContainersCmd listContainersCmd = dockerClient.listContainersCmd().withShowAll(false);
         List<Container> containers = listContainersCmd.exec();
 
         return containers.stream()

@@ -1,0 +1,17 @@
+= Caffainer API Docs
+:doctype: book
+:toc: left
+:toclevels: 3
+:sectnums:
+:source-highlighter: highlightjs
+:snippets: ${project.build.directory}/generated-snippets
+
+== Listar contenedores en ejecución
+
+=== `GET /container/listRunningContainers`
+
+Obtiene una lista de contenedores que están actualmente en ejecución.
+
+include::{snippets}/containers-list/http-request.adoc[]
+
+include::{snippets}/containers-list/http-response.adoc[]

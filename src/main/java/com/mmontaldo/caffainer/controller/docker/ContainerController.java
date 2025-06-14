@@ -1,4 +1,4 @@
-package com.mmontaldo.caffainer.controller;
+package com.mmontaldo.caffainer.controller.docker;
 
 import java.util.List;
 

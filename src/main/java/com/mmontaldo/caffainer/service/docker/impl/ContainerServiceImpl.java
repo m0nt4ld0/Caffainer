@@ -10,7 +10,7 @@ import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.command.InspectContainerCmd;
 import com.github.dockerjava.api.command.ListContainersCmd;
 import com.github.dockerjava.api.model.Container;
-import com.mmontaldo.caffainer.dto.ContainerInfoDto;
+import com.mmontaldo.caffainer.dto.docker.ContainerInfoDto;
 import com.mmontaldo.caffainer.service.docker.ContainerService;
 
 import lombok.AllArgsConstructor;

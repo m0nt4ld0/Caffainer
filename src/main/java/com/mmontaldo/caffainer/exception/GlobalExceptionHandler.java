@@ -1,5 +1,7 @@
 package com.mmontaldo.caffainer.exception;
 
+import java.util.Map;
+
 import org.apache.hc.client5.http.HttpHostConnectException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +13,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 
 import com.mmontaldo.caffainer.dto.ErrorResponseDto;
+import com.mmontaldo.caffainer.exception.security.InvalidTokenException;
+import com.mmontaldo.caffainer.exception.security.UnauthorizedAccessException;
+import com.mmontaldo.caffainer.exception.security.UserNotFoundException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -94,4 +99,29 @@ public class GlobalExceptionHandler {
         
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<?> handleUserNotFound(UserNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of(
+            "error", "Usuario no encontrado",
+            "message", ex.getMessage()
+        ));
+    }
+
+    @ExceptionHandler(InvalidTokenException.class)
+    public ResponseEntity<?> handleInvalidToken(InvalidTokenException ex) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of(
+            "error", "Token no válido",
+            "message", ex.getMessage()
+        ));
+    }
+
+    @ExceptionHandler(UnauthorizedAccessException.class)
+    public ResponseEntity<?> handleUnauthorized(UnauthorizedAccessException ex) {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(Map.of(
+            "error", "Acceso no autorizado",
+            "message", ex.getMessage()
+        ));
+    }
+
 }
